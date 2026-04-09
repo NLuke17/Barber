@@ -6,7 +6,7 @@
 
 #define CHAIRS 6
 #define NUM_CUSTOMERS 75
-#define DELAY 100000 // Adjust as needed for speed
+#define DELAY 1000
 
 sem_t mutex;
 sem_t stylistReady;
