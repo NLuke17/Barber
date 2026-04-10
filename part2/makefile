@@ -1,19 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -pthread
-TARGET = sleepingStylistMon
 
-all: $(TARGET)
+all: sleepingStylistMon
 
-# Link the object file and main program [cite: 120]
-$(TARGET): sleepingStylistMon.o monitor.o
-	$(CC) $(CFLAGS) -o $(TARGET) sleepingStylistMon.o monitor.o
+sleepingStylistMon: sleepingStylistMon.c monitor.o
+	$(CC) $(CFLAGS) -o sleepingStylistMon sleepingStylistMon.c monitor.o
 
-# Compile the monitor to an object file using the -c flag [cite: 119]
-monitor.o: monitor.c
+monitor.o: monitor.c monitor.h
 	$(CC) $(CFLAGS) -c monitor.c
 
-sleepingStylistMon.o: sleepingStylistMon.c
-	$(CC) $(CFLAGS) -c sleepingStylistMon.c
-
 clean:
-	rm -f $(TARGET) *.o
+	rm -f *.o sleepingStylistMon
